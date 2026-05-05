@@ -1,9 +1,24 @@
 'use client'
 
-import { Heart } from 'lucide-react'
-import { MusicPlayer } from '@/components/music-player'
+import { useRef, useState } from 'react'
+import { Heart, Play, Pause } from 'lucide-react'
 
 export default function Home() {
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const togglePlay = () => {
+    if (!audioRef.current) return
+
+    if (isPlaying) {
+      audioRef.current.pause()
+    } else {
+      audioRef.current.play()
+    }
+
+    setIsPlaying(!isPlaying)
+  }
+
   return (
     <main className="min-h-screen bg-amber-50 flex flex-col items-center justify-center px-4 py-6 sm:py-10">
 
@@ -11,18 +26,14 @@ export default function Home() {
       <div className="w-full max-w-sm sm:max-w-md">
         <div className="relative z-10 p-6 sm:p-8 md:p-10 space-y-5 sm:space-y-6">
 
-          {/* Top decorative element */}
+          {/* Top decorative */}
           <div className="flex justify-center">
             <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
           </div>
 
-          {/* Heart icon */}
+          {/* Heart */}
           <div className="flex justify-center">
-            <Heart
-              size={24}
-              className="text-red-400 fill-red-400 animate-pulse"
-              style={{ animationDuration: '3s' }}
-            />
+            <Heart size={24} className="text-red-400 fill-red-400 animate-pulse" style={{ animationDuration: '3s' }} />
           </div>
 
           {/* Title */}
@@ -30,15 +41,13 @@ export default function Home() {
             <p className="text-xs sm:text-sm tracking-widest text-amber-900/50 uppercase font-light">
               For You
             </p>
-            <h1
-              className="text-2xl sm:text-3xl italic text-amber-950 font-light"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              A Letter Without Paper :VVV
+            <h1 className="text-2xl sm:text-3xl italic text-amber-950 font-light"
+              style={{ fontFamily: 'Georgia, serif' }}>
+              A Letter without paper lol
             </h1>
           </div>
 
-          {/* Divider dots */}
+          {/* Dots */}
           <div className="flex justify-center gap-1">
             <div className="w-1 h-1 rounded-full bg-amber-400"></div>
             <div className="w-1 h-1 rounded-full bg-amber-400"></div>
@@ -56,7 +65,7 @@ export default function Home() {
             </p>
 
             <p className="text-base sm:text-lg leading-relaxed text-amber-950/85" style={{ fontFamily: 'Georgia, serif' }}>
-              You still mean a lot to me. Even with the distance, I care about every call, every message, all of it. I don’t take that for granted.
+              You still mean a lot to me. Even with the distance, I care about every call, every message, all of it.
             </p>
 
             <p className="text-base sm:text-lg leading-relaxed text-amber-950/85" style={{ fontFamily: 'Georgia, serif' }}>
@@ -68,7 +77,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Divider dots */}
+          {/* Bottom dots */}
           <div className="flex justify-center gap-1 pt-2">
             <div className="w-1 h-1 rounded-full bg-amber-400"></div>
             <div className="w-1 h-1 rounded-full bg-amber-400"></div>
@@ -80,36 +89,58 @@ export default function Home() {
             <p className="text-sm text-amber-900/60" style={{ fontFamily: 'Georgia, serif' }}>
               Always yours, rawrr
             </p>
-            <p
-              className="text-2xl text-amber-600 italic"
-              style={{ fontFamily: 'Brush Script MT, cursive', letterSpacing: '0.1em' }}
-            >
+            <p className="text-2xl text-amber-600 italic"
+              style={{ fontFamily: 'Brush Script MT, cursive', letterSpacing: '0.1em' }}>
               Hella
             </p>
             <p className="text-xs text-amber-700 pt-1">♡</p>
           </div>
 
-          {/* Coffee stain detail */}
-          <div
-            className="absolute bottom-5 right-5 w-6 h-6 rounded-full opacity-15 bg-amber-900"
+          {/* Coffee stain */}
+          <div className="absolute bottom-5 right-5 w-6 h-6 rounded-full opacity-15 bg-amber-900"
             style={{ boxShadow: 'inset 0 2px 4px rgba(139, 69, 19, 0.3)' }}
-          ></div>
+          />
+        </div>
+
+        {/* Music Section (UNDER TEXT) */}
+        <div className="mt-10 text-center space-y-3">
+
+          <p className="text-xs sm:text-sm text-amber-900/40 italic">
+            ♪ remember this song? ♪
+          </p>
+
+          {/* Music Player */}
+          <div className="mx-auto max-w-xs sm:max-w-sm">
+            <div className="flex items-center gap-4 bg-amber-100/50 backdrop-blur-md border border-amber-200 rounded-full px-4 py-2 shadow-sm">
+
+              {/* Button */}
+              <button
+                onClick={togglePlay}
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-amber-200 hover:bg-amber-300 transition"
+              >
+                {isPlaying ? (
+                  <Pause size={16} className="text-amber-900" />
+                ) : (
+                  <Play size={16} className="text-amber-900 ml-0.5" />
+                )}
+              </button>
+
+              {/* Text */}
+              <div className="flex-1 overflow-hidden">
+                <p className="text-xs text-amber-900/70 italic truncate">
+                  now playing...
+                </p>
+              </div>
+
+              {/* Pulse dot */}
+              <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+            </div>
+
+            <audio ref={audioRef} src="/sample-music.mp3" />
+          </div>
 
         </div>
       </div>
-
-      {/* Music note */}
-      <div className="mt-8 text-center">
-        <p className="text-xs sm:text-sm text-amber-900/40 italic">
-          ♪ remember this song? ♪
-        </p>
-      </div>
-
-      {/* ✅ Music Player BELOW text */}
-      <div className="mt-3">
-        <MusicPlayer src="/sample-music.mp3" />
-      </div>
-
     </main>
   )
 }
