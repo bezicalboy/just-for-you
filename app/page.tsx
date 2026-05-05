@@ -43,7 +43,7 @@ export default function Home() {
             </p>
             <h1 className="text-2xl sm:text-3xl italic text-amber-950 font-light"
               style={{ fontFamily: 'Georgia, serif' }}>
-              A Letter without paper :VVVVV
+              A Letter without paper
             </h1>
           </div>
 
