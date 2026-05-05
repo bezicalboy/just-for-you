@@ -26,7 +26,7 @@ export default function Home() {
               <div className="space-y-2 text-center">
                 <p className="text-xs sm:text-sm tracking-widest text-amber-900/50 uppercase font-light">For You</p>
                 <h1 className="text-2xl sm:text-3xl italic text-amber-950 font-light" style={{ fontFamily: 'Georgia, serif' }}>
-                  A Love Letter
+                  A Letter without paper lol
                 </h1>
               </div>
 
@@ -40,19 +40,22 @@ export default function Home() {
               {/* Letter body */}
               <div className="space-y-4 sm:space-y-4 text-justify">
                 <p className="text-base sm:text-lg leading-relaxed text-amber-950/85" style={{ fontFamily: 'Georgia, serif' }}>
-                  I had to write this down because sometimes words are too fragile to speak out loud. You mean everything to me.
+                 Hey, I wanted to write this instead of saying it, because I don’t always say things the right way out loud.
                 </p>
 
                 <p className="text-base sm:text-lg leading-relaxed text-amber-950/85" style={{ fontFamily: 'Georgia, serif' }}>
-                  Every day with you feels like a gift I don&apos;t deserve but am so grateful for. Your smile, your laugh, the way your eyes light up when you&apos;re genuinely happy—it all makes my heart skip a beat.
+                 I know our communication’s been a bit off lately. I’m not trying to overreact or make it a big thing, but I don’t want it to stay like that either.
                 </p>
 
                 <p className="text-base sm:text-lg leading-relaxed text-amber-950/85" style={{ fontFamily: 'Georgia, serif' }}>
-                  You&apos;ve changed me in the most beautiful way. You make me want to be better, to love harder, and to appreciate every single moment. Being with you feels like coming home.
+                You still mean a lot to me. Even with the distance, I care about every call, every message, all of it. I don’t take that for granted.
                 </p>
 
                 <p className="text-base sm:text-lg leading-relaxed text-amber-950/85" style={{ fontFamily: 'Georgia, serif' }}>
-                  I love you more than words could ever express. Thank you for being you, for trusting me with your heart, and for allowing me to be part of your beautiful life.
+                 You’ve had a good impact on me, and I appreciate you more than I probably say.
+                </p>
+			 <p className="text-base sm:text-lg leading-relaxed text-amber-950/85" style={{ fontFamily: 'Georgia, serif' }}>
+                 I’m still here, and I’d rather we figure things out than let them drift.
                 </p>
               </div>
 
@@ -66,10 +69,10 @@ export default function Home() {
               {/* Signature */}
               <div className="text-center space-y-2 pt-3">
                 <p className="text-sm text-amber-900/60" style={{ fontFamily: 'Georgia, serif' }}>
-                  Always yours,
+                  Always yours, rawrr
                 </p>
                 <p className="text-2xl text-amber-600 italic" style={{ fontFamily: 'Brush Script MT, cursive', letterSpacing: '0.1em' }}>
-                  Me
+                  Hella
                 </p>
                 <p className="text-xs text-amber-700 pt-1">♡</p>
               </div>
@@ -83,7 +86,7 @@ export default function Home() {
 
       {/* Music note */}
       <div className="mt-8 text-center">
-        <p className="text-xs sm:text-sm text-amber-900/40 italic">♪ Press play and let the music complete this moment ♪</p>
+        <p className="text-xs sm:text-sm text-amber-900/40 italic">♪ remember this song? ♪</p>
       </div>
     </main>
   )
